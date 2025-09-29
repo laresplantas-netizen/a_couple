@@ -1,25 +1,34 @@
 <!doctype html>
-<meta charset="utf-8">
-<title>Starting download…</title>
-<p>If the download doesn't start automatically, <a id="dl" href="#">click here</a>.</p>
-<script>
-  const audioUrl = './a_couple.mp3';
-  const suggestedName = 'a_couple.mp3';
-
-  fetch(audioUrl)
-    .then(r => r.blob())
-    .then(blob => {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = suggestedName;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    })
-    .catch(err => {
-      console.error(err);
-      document.getElementById('dl').href = audioUrl;
-    });
-</script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Download Audio</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f9f9f9;
+      font-family: sans-serif;
+    }
+    .btn {
+      font-size: 2em;
+      padding: 20px 40px;
+      background: #007acc;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <a href="a_couple.mp3" download="a_couple.mp3" class="btn">⬇️ Download</a>
+</body>
+</html>
