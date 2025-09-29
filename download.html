@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Starting download…</title>
+<p>If the download doesn't start automatically, <a id="dl" href="#">click here</a>.</p>
+<script>
+  // 👇 Change this line to match your audio filename
+  const audioUrl = './a couple.mp3';
+  const suggestedName = 'a couple.mp3';
+
+  fetch(audioUrl)
+    .then(r => r.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = suggestedName;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('dl').href = audioUrl;
+    });
+</script>
