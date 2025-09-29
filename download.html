@@ -10,25 +10,28 @@
       align-items: center;
       height: 100vh;
       background: #f9f9f9;
-      font-family: sans-serif;
+      font-family: "Helvetica Neue", Arial, sans-serif;
     }
     .btn {
       font-size: 2em;
       padding: 20px 40px;
-      background: #007acc;
+      background: #cccccc; /* light grey */
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: background 0.3s, transform 0.1s;
     }
     .btn:hover {
-      background: #005f99;
+      background: #b3b3b3; /* slightly darker grey */
+    }
+    .btn:active {
+      transform: scale(0.97);
     }
   </style>
 </head>
 <body>
-  <a href="a_couple.mp3" download="a_couple.mp3" class="btn">⬇️ Download</a>
+  <a href="a_couple.mp3" download="a_couple.mp3" class="btn">I love you</a>
 </body>
 </html>
